@@ -111,6 +111,27 @@ function handlePreferenceChange() {
   statusMessage.textContent = `Saved ${chosenTheme} theme and ${chosenLayout} layout.`;
 }
 
+// check local storage on load and restore saved controls and appearance
+function loadPreferences() {
+  const savedData = localStorage.getItem(storageKey);
+
+  if (savedData) {
+    const parsed = JSON.parse(savedData);
+    const theme = parsed.theme || 'forest';
+    const layout = parsed.layout || 'cards';
+
+    themeSelect.value = theme;
+    layoutSelect.value = layout;
+    applyPreferences(theme, layout);
+    statusMessage.textContent = `Restored saved preferences (${theme} theme, ${layout} layout).`;
+  } else {
+    applyPreferences('forest', 'cards');
+    statusMessage.textContent = 'Default Forest theme and Cards layout active.';
+  }
+}
+
+loadPreferences();
+
 // YOUR WORK: build these features using the supplied HTML, CSS, and data.
 // 1. Select the collection and preference controls.
 // 2. Use a loop to generate the creature entries. See START-HERE.md for markup.
