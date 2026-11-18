@@ -91,6 +91,26 @@ function handlePreferenceChange() {
 themeSelect.addEventListener('change', handlePreferenceChange);
 layoutSelect.addEventListener('change', handlePreferenceChange);
 
+// bundle both preferences into an object and save as json
+function savePreferences(theme, layout) {
+  const preferences = {
+    theme: theme,
+    layout: layout
+  };
+
+  localStorage.setItem(storageKey, JSON.stringify(preferences));
+}
+
+// handle changes to either dropdown, save them, and update the status text
+function handlePreferenceChange() {
+  const chosenTheme = themeSelect.value;
+  const chosenLayout = layoutSelect.value;
+
+  applyPreferences(chosenTheme, chosenLayout);
+  savePreferences(chosenTheme, chosenLayout);
+  statusMessage.textContent = `Saved ${chosenTheme} theme and ${chosenLayout} layout.`;
+}
+
 // YOUR WORK: build these features using the supplied HTML, CSS, and data.
 // 1. Select the collection and preference controls.
 // 2. Use a loop to generate the creature entries. See START-HERE.md for markup.
