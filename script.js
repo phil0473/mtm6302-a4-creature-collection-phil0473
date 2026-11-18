@@ -79,6 +79,18 @@ function applyPreferences(theme, layout) {
   collection.dataset.layout = layout;
 }
 
+// handle changes to either dropdown and update the status text
+function handlePreferenceChange() {
+  const chosenTheme = themeSelect.value;
+  const chosenLayout = layoutSelect.value;
+
+  applyPreferences(chosenTheme, chosenLayout);
+  statusMessage.textContent = `Updated to ${chosenTheme} theme and ${chosenLayout} layout.`;
+}
+
+themeSelect.addEventListener('change', handlePreferenceChange);
+layoutSelect.addEventListener('change', handlePreferenceChange);
+
 // YOUR WORK: build these features using the supplied HTML, CSS, and data.
 // 1. Select the collection and preference controls.
 // 2. Use a loop to generate the creature entries. See START-HERE.md for markup.
