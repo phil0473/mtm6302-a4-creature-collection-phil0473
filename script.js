@@ -51,6 +51,29 @@ function buildCollection(creatures) {
     const item = document.createElement('li');
     item.className = 'creature';
 
+    const image = document.createElement('img');
+    image.src = creature.image;
+    image.alt = creature.alt;
+
+    const info = document.createElement('div');
+    info.className = 'creature-info';
+
+    const title = document.createElement('h3');
+    title.textContent = creature.name;
+
+    const description = document.createElement('p');
+    description.className = 'creature-description';
+    description.textContent = creature.description;
+
+    info.append(title, description);
+    item.append(image, info);
+    collection.appendChild(item);
+  }
+}
+
+buildCollection($creatures);
+
+
 // YOUR WORK: build these features using the supplied HTML, CSS, and data.
 // 1. Select the collection and preference controls.
 // 2. Use a loop to generate the creature entries. See START-HERE.md for markup.
