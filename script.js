@@ -73,6 +73,11 @@ function buildCollection(creatures) {
 
 buildCollection($creatures);
 
+// apply the chosen theme and layout attributes to the page
+function applyPreferences(theme, layout) {
+  document.body.dataset.theme = theme;
+  collection.dataset.layout = layout;
+}
 
 // YOUR WORK: build these features using the supplied HTML, CSS, and data.
 // 1. Select the collection and preference controls.
