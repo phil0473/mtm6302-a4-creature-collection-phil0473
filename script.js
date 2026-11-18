@@ -38,6 +38,13 @@ const $creatures = [
   }
 ]
 
+// select the collection list, preference controls, and status message
+const storageKey = 'mtm6302-creature-collection-prefs';
+const collection = document.getElementById('collection');
+const themeSelect = document.getElementById('theme');
+const layoutSelect = document.getElementById('layout');
+const statusMessage = document.getElementById('status');
+
 // YOUR WORK: build these features using the supplied HTML, CSS, and data.
 // 1. Select the collection and preference controls.
 // 2. Use a loop to generate the creature entries. See START-HERE.md for markup.
