@@ -45,6 +45,7 @@ const themeSelect = document.getElementById('theme');
 const layoutSelect = document.getElementById('layout');
 const statusMessage = document.getElementById('status');
 
+// loop through the creatures array and build a list item for each one
 function buildCollection(creatures) {
   for (const creature of creatures) {
     const item = document.createElement('li');
